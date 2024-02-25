@@ -18,9 +18,10 @@ conda activate x-ray
 pip install -r requirements.txt
 ```
 
+-- downalod aws cli from this link and setup link :
+
 ```bash
-downalod aws cli from this link and setup - 
-link : https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 ```
 
