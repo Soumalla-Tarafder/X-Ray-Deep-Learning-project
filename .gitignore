@@ -6,6 +6,7 @@ x-ray
 # C extensions
 *.so
 data
+artifacts
 # Distribution / packaging
 .Python
 build/
