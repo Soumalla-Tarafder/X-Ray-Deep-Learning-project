@@ -30,4 +30,13 @@ link : https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.
 
 ```bash
 aws configure
+
+```
+
+-- after successfully run the model_trainer pipeline code to check the bentoml model save or not is -- 
+
+```bash
+
+bentoml models list
+
 ```
