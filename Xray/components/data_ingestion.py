@@ -1,4 +1,4 @@
-import sys
+import sys,shutil
 
 
 from Xray.cloud_storage.s3_operation import S3Operation
@@ -19,13 +19,16 @@ class DataIngestion:
     def get_data_from_s3(self):
         try:
             logging.info("Entered the get_data_from_s3 method of Data ingestion class")
+            # as we are using local store as of now instead of s3 bucket
 
-            self.s3.sync_folder_from_s3(
-                folder=self.data_ingestion_config.data_path,
-                bucket_name=self.data_ingestion_config.bucket_name,
-                bucket_folder_name=self.data_ingestion_config.s3_data_folder,
-            )
 
+            # self.s3.sync_folder_from_s3(
+            #     folder=self.data_ingestion_config.data_path,
+            #     bucket_name=self.data_ingestion_config.bucket_name,
+            #     bucket_folder_name=self.data_ingestion_config.s3_data_folder,
+            # )
+            shutil.copytree('./data', self.data_ingestion_config.data_path)
+            
             logging.info("Exited the get_data_from_s3 method of Data ingestion class")
 
         except Exception as e:
@@ -37,13 +40,14 @@ class DataIngestion:
         )
 
         try:
+            
             self.get_data_from_s3()
 
             data_ingestion_artifact: DataIngestionArtifact = DataIngestionArtifact(
                 train_file_path=self.data_ingestion_config.train_data_path,
                 test_file_path=self.data_ingestion_config.test_data_path,
             )
-
+            
             logging.info(
                 "Exited the initiate_data_ingestion method of Data ingestion class"
             )

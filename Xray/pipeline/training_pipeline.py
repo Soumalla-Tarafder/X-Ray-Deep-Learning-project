@@ -9,8 +9,8 @@ class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config=DataIngestionConfig()
         
-        def start_data_ingestion(self) -> DataIngestionArtifact:
-            logging.info("Entered the start_data_ingestion method of TrainPipeline class")
+    def start_data_ingestion(self) -> DataIngestionArtifact:
+        logging.info("Entered the start_data_ingestion method of TrainPipeline class")
         try:
 
             logging.info("Getting the data from s3 bucket")
@@ -20,7 +20,8 @@ class TrainPipeline:
             )
 
             data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
-
+            
+            print(data_ingestion_artifact)
             logging.info("Got the train_set and test_set from s3")
 
             logging.info(
@@ -35,7 +36,7 @@ class TrainPipeline:
 if __name__ == "__main__":
     train_pipeline=TrainPipeline()
 
-    train_pipeline.start_data_ingestion()
+    Data = train_pipeline.start_data_ingestion()
 
             
             
